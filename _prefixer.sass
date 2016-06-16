@@ -1,0 +1,11 @@
+// web kits (use: @include kits(font-smoothing, $type);)
+@mixin prefixer($property, $value) {
+    -webkit-#{$property}: #{$value};
+	  -moz-#{$property}: #{$value};
+	  -ms-#{$property}: #{$value};
+	  -o-#{$property}: #{$value};
+	  // Include the OSX Moz fix if font-smoothing else this is ignored
+	  @if $property == font-smoothing {
+	    -moz-osx-#{$property}: grayscale;
+	  }
+}
